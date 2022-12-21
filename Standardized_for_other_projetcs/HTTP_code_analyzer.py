@@ -627,7 +627,7 @@ def sttc_as_text(status_code: int) -> str:
 
     # return the response and explaination
     return f"""
-    {response}
+    {str(status_code)}: {response}
     ---------------------------------
     {explaination}"""
 

@@ -4,7 +4,8 @@
 
 Currently in the To go further part and making the code reusable in other projects
 
-## prerequise
+## prerequises
+
 Python 3.10
 
 * warnings
@@ -36,3 +37,31 @@ Country : list of leaders ->
 ## How to use it
 
 just run the leaders_scraper.py and it should do the trick!
+
+## Informations about the standardized files
+
+### [HTTP_code_analyzer.py](https://github.com/Flotchet/Wikipedia_Scraper/blob/master/Standardized_for_other_projetcs/HTTP_code_analyzer.py "HTTP_code_analyzer.py")
+
+#### Prerequisess
+
+Python 3.10
+
+* functools
+
+### List of functions
+
+* **status_to_text_summarized**(**status_code**: **int**)  -> str
+  convert an int into the corresponding status code message
+* **stts**(**status_code**: **int**)  -> str
+  Its the same function as before but with a shorter name
+* **status_to_text_complete**(**status_code**: **int**)  *->* dict[**str**:**str**]
+  convert an int into the corresponding status code message and
+  a bit of information concerning the status_code in the form of a
+  dictionary with the keys "Response" and "Explaination".
+* **sttc**(**status_code**: **int**)  -> dict[**str**:**str**]
+  Its the same function as before but with a shorter name
+* **sttc_as_text**(**status_code**: **int**) -> str
+  convert an int into the corresponding status code message and
+  a bit of information concerning the status_code as a multiline text
+* **stt**(**status_code**: **int**)  -> str
+  Its the same function as before but with a shorter name
