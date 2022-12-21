@@ -18,7 +18,7 @@ Python 3.10
 
 ## What it does
 
-Get all the leaders from a series of countries from https://country-leaders.onrender.com and get a informations about them, scrape some data from wikipedia and store them in a json file with this structure:
+Get all the leaders from a series of countries from https://country-leaders.onrender.com and get a set of informations about each of them, scrape some data from wikipedia and store them in a json file with this structure:
 
 Country : list of leaders ->
 
