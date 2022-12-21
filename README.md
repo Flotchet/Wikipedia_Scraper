@@ -2,7 +2,7 @@
 
 ## Current state
 
-Currently in the To go further part
+Currently in the To go further part and making the code reusable in other projects
 
 ## prerequise
 
