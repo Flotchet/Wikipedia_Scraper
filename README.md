@@ -5,6 +5,7 @@
 Currently in the To go further part and making the code reusable in other projects
 
 ## prerequise
+Python 3.10
 
 * warnings
 * functools
