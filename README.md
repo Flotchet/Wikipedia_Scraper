@@ -27,7 +27,7 @@ Country : list of leaders ->
 * "birth_date" : str "yyyy-mm-dd"
 * "death_date" : str "yyyy-mm-dd"
 * "place_of_birth" : str
-* "wikipedia_url" : str URL -> "https://"   + "contry" + ".wikipedia.org/wiki/" + "endpoint"
+* "wikipedia_url" : str URL -> "https://"   + "country-prefix" + ".wikipedia.org/wiki/" + "endpoint"
 * "start_mandate" : str "yyyy-mm-dd"
 * "end_mandate" : str "yyyy-mm-dd"
 * "first_paragraph" : str
