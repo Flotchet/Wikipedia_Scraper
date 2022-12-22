@@ -19,6 +19,7 @@ def save_data(data : any, path : str, name : str, error : bool, format : str) ->
 
     # check if the types of the variables are the good ones:
     if not isinstance(data, (dict, list, np.ndarray, pd.DataFrame)):
+
         if error:
             raise TypeError("data must be a dict, list, numpy array or pandas DataFrame")
         else:
@@ -181,9 +182,9 @@ def save_data_to_txt(data : any , path : str, name : str, error : bool) -> int:
     """
 
     # check if the types of the variables are the good ones:
-    if not isinstance(data, (dict, list, np.ndarray, pd.DataFrame)):
+    if not isinstance(data, (str, int, float, dict, list, np.ndarray, pd.DataFrame)):
         if error:
-            raise TypeError("data must be a dict, list, numpy array or pandas DataFrame")
+            raise TypeError("data must be a str, int, float, dict, list, np.ndarray, pd.DataFrame")
         else:
             return 3
 
@@ -214,6 +215,13 @@ def save_data_to_txt(data : any , path : str, name : str, error : bool) -> int:
     elif isinstance(data, np.ndarray):
         np.savetxt(path + name, data, delimiter=",")
 
+    elif isinstance(data, str):
+        with open(path + name, 'w') as outfile:
+            outfile.write(data)
+
+    elif isinstance(data, list):
+        with open(path + name, 'w') as outfile:
+            outfile.write(' '.join(data))
     else:
         with open(path + name, 'w') as outfile:
             outfile.write(str(data))
@@ -233,12 +241,6 @@ def save_data_to_pickle(data : any , path : str, name : str, error : bool) -> in
     """
 
     # check if the types of the variables are the good ones:
-    if not isinstance(data, (dict, list, np.ndarray, pd.DataFrame)):
-        if error:
-            raise TypeError("data must be a dict, list, numpy array or pandas DataFrame")
-        else:
-            return 3
-
     if not isinstance(path, str):        
         if error:
             raise TypeError("path must be a string")
@@ -362,7 +364,7 @@ def load_csv(path : str, name : str, error : bool) -> tuple[any:int]:
 
 
 
-def load_txt(path : str, name : str, error : bool) -> tuple[any, int]:
+def load_txt(path : str, name : str, error : bool) -> tuple[str, int]:
     
         """
         Load data from a txt file into a dictionary
@@ -402,7 +404,7 @@ def load_txt(path : str, name : str, error : bool) -> tuple[any, int]:
             else:
                 return {}, 4
     
-        # Load data from txt file
+        # Load data from txt file as str
         with open(path + name, 'r') as infile:
             data = infile.read()
     
@@ -455,3 +457,42 @@ def load_pickle(path : str, name : str, error : bool) -> tuple(any, int):
         data = pickle.load(infile)
 
     return data, 0
+
+
+def maint():
+
+    # Create a dictionary
+    data = {'a': 1, 'b': 2, 'c': 3}
+    directory_targe = ""
+    error = False
+
+    # Save the dictionary to a json file
+    save_data_to_json(directory_targe, "test", data, error)
+    
+    # Load the dictionary from the json file
+    data, code = load_json(directory_targe, "test.json", error)
+    print(data, code)
+
+    # Save the dictionary to a csv file
+    save_data_to_csv(directory_targe, "test", data, error)
+
+    # Load the dictionary from the csv file
+    data, code = load_csv(directory_targe, "test.csv", error)
+    print(data, code)
+
+    # Save the dictionary to a txt file
+    save_data_to_txt(directory_targe, "test", data, error)
+
+    # Load the dictionary from the txt file
+    data, code = load_txt(directory_targe, "test.txt", error)
+    print(data, code)
+
+    # Save the dictionary to a pickle file
+    save_data_to_pickle(directory_targe, "test", data, error)
+
+    # Load the dictionary from the pickle file
+    data, code = load_pickle(directory_targe, "test.pickle", error)
+    print(data, code)
+
+if __name__ == '__main__':
+    maint()

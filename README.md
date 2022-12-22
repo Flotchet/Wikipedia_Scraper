@@ -65,3 +65,36 @@ Python 3.10
   a bit of information concerning the status_code as a multiline text
 * **stt**(**status_code**: **int**)  -> str
   Its the same function as before but with a shorter name
+
+### [Get_DATA.py](https://github.com/Flotchet/Wikipedia_Scraper/blob/master/Standardized_for_other_projetcs/Get_DATA.py "Get_DATA.py")
+
+#### Prerequisess
+
+Python  3.10
+
+* json
+* pandas
+* numpy
+* pickle
+* os
+
+#### List of functions
+
+* **save_data(data : any, path : str, name : str, error : bool, format : str)** -> int
+  Save a data object (dict, list, np.ndarray, pd.DataFrame) into a file format(csv,txt,json,pickle)
+* **save_data_to_json(data : dict[any:any], path : str, name : str, error : bool)** -> int
+  Save a dictionary in the form of a json file
+* **save_data_to_csv(data : any , path : str, name : str, error : bool)** -> int
+  Save a data object (dict, list, np.ndarray, pd.DataFrame) into a csv file
+* **save_data_to_txt(data : any , path : str, name : str, error : bool)** -> int
+  Save a data object (str, int, float, dict, list, np.ndarray, pd.DataFrame) into a txt file
+* **save_data_to_pickle(data : any , path : str, name : str, error : bool)** -> int
+  save any serealizable object into a pickle file
+* **load_json(path : str, name : str, error : bool) ->** tuple[dict:int]
+  load a json file as a dictionary
+* **load_csv(path : str, name : str, error : bool)** -> tuple[any:int]
+  load a csv file as a pandas dataframe
+* **load_txt(path : str, name : str, error : bool)** -> tuple[str, int]
+  load a txt file as a string
+* **load_pickle(path : str, name : str, error : bool)** -> tuple[any, int]
+  Load a pickle file into an object
