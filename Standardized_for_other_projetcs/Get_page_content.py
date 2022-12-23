@@ -95,7 +95,7 @@ def get_multiple_page_content(urls : list[str] ,
                               session : any or None = None , 
                               error : bool = False , 
                               warns : bool = True 
-                                                            ) -> tuple[dict[str : str] or str , dict[str : int] or int]:
+                                                            ) -> tuple[dict[str : str] , dict[str : int]]:
 
     """
     get the content of multiple pages
@@ -127,12 +127,13 @@ def get_multiple_page_content(urls : list[str] ,
 
     return {url : req.text for url, req in zip(urls, reqs)}, {url : req.status_code for url, req in zip(urls, reqs)}
 
+
 def get_multiple_endpoint_content(url : str , 
                                   endpoints : list[str] or None = None , 
                                   session : any or None = None , 
                                   error : bool = False , 
                                   warns : bool = True 
-                                                                        ) -> tuple[dict[str : str], dict[str : int]]:
+                                                                        ) -> tuple[dict[str : str] or str, dict[str : int] or int]:
     """
     get the content of multiple pages
     takes a url and a list of endpoint
