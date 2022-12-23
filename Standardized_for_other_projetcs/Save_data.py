@@ -3,10 +3,17 @@ import os
 import numpy as np
 import pandas as pd
 import pickle
+import warnings
 
 
 
-def save_data(data : any, path : str, name : str, error : bool, format : str) -> int:
+def save_data(data : any ,
+              path : str ,
+              name : str , 
+              format : str , 
+              error : bool = False , 
+              warns : bool = True
+                                    ) -> int:
 
     """
     Save data to file
@@ -20,24 +27,35 @@ def save_data(data : any, path : str, name : str, error : bool, format : str) ->
     # check if the types of the variables are the good ones:
     if not isinstance(data, (dict, list, np.ndarray, pd.DataFrame)):
 
+        if warns:
+            warnings.warn("data must be a dict, list, numpy array or pandas DataFrame")
         if error:
             raise TypeError("data must be a dict, list, numpy array or pandas DataFrame")
         else:
             return 3
 
-    if not isinstance(path, str):        
+    if not isinstance(path, str):
+
+        if warns:
+            warnings.warn("path must be a string")
         if error:
             raise TypeError("path must be a string")
         else:
             return 2
     
     if not isinstance(name, str):
+
+        if warns:
+            warnings.warn("name must be a string")
         if error:
             raise TypeError("name must be a string")
         else:
             return 1
 
     if not isinstance(format, str):
+
+        if warns:
+            warnings.warn("format must be a string")
         if error:
             raise TypeError("format must be a string")
         else:
@@ -71,6 +89,8 @@ def save_data(data : any, path : str, name : str, error : bool, format : str) ->
             pd.DataFrame(data).to_csv(path + name, index=False)
 
     else:
+        if warns:
+            warnings.warn("format must be 'json', 'csv' or 'txt'")
         if error:
             raise ValueError("format must be 'json', 'csv' or 'txt'")
         else:
@@ -80,7 +100,13 @@ def save_data(data : any, path : str, name : str, error : bool, format : str) ->
 
 
 
-def save_data_to_json(data : dict[any:any], path : str, name : str, error : bool) -> int :
+def save_data_to_json(data : dict[any:any] , 
+                      path : str , 
+                      name : str , 
+                      error : bool = False , 
+                      warns : bool = True
+                                            ) -> int :
+
     """
     Save data to json file
     :param data: data to save
@@ -91,18 +117,27 @@ def save_data_to_json(data : dict[any:any], path : str, name : str, error : bool
 
     # check if the types of the variables are the good ones:
     if not isinstance(data, dict):
+
+        if warns:
+            warnings.warn("data must be a dict")
         if error:
             raise TypeError("data must be a dict")
         else:
             return 3
 
-    if not isinstance(path, str):        
+    if not isinstance(path, str):   
+
+        if warns:
+            warnings.warn("path must be a string")      
         if error:
             raise TypeError("path must be a string")
         else:
             return 2
     
     if not isinstance(name, str):
+
+        if warns:
+            warnings.warn("name must be a string")
         if error:
             raise TypeError("name must be a string")
         else:
@@ -124,8 +159,13 @@ def save_data_to_json(data : dict[any:any], path : str, name : str, error : bool
 
 
 
-def save_data_to_csv(data : any , path : str, name : str, error : bool) -> int:
-
+def save_data_to_csv(data : any , 
+                     path : str , 
+                     name : str , 
+                     error : bool = False , 
+                     warns : bool = True
+                                            ) -> int:
+                                            
     """
     Save data to csv file
     :param data: data to save
@@ -136,18 +176,27 @@ def save_data_to_csv(data : any , path : str, name : str, error : bool) -> int:
 
     # check if the types of the variables are the good ones:
     if not isinstance(data, (dict, list, np.ndarray, pd.DataFrame)):
+
+        if warns:
+            warnings.warn("data must be a dict, list, numpy array or pandas DataFrame")
         if error:
             raise TypeError("data must be a dict, list, numpy array or pandas DataFrame")
         else:
             return 3
 
-    if not isinstance(path, str):        
+    if not isinstance(path, str):     
+
+        if warns:
+            warnings.warn("path must be a string")   
         if error:
             raise TypeError("path must be a string")
         else:
             return 2
     
     if not isinstance(name, str):
+
+        if warns:
+            warnings.warn("name must be a string")
         if error:
             raise TypeError("name must be a string")
         else:
@@ -171,7 +220,12 @@ def save_data_to_csv(data : any , path : str, name : str, error : bool) -> int:
 
 
 
-def save_data_to_txt(data : any , path : str, name : str, error : bool) -> int:
+def save_data_to_txt(data : any , 
+                     path : str , 
+                     name : str , 
+                     error : bool = False ,  
+                     warns : bool = True
+                                            ) -> int:
 
     """
     Save data to txt file
@@ -183,18 +237,27 @@ def save_data_to_txt(data : any , path : str, name : str, error : bool) -> int:
 
     # check if the types of the variables are the good ones:
     if not isinstance(data, (str, int, float, dict, list, np.ndarray, pd.DataFrame)):
+
+        if warns:
+            warnings.warn("data must be a str, int, float, dict, list, np.ndarray, pd.DataFrame")
         if error:
             raise TypeError("data must be a str, int, float, dict, list, np.ndarray, pd.DataFrame")
         else:
             return 3
 
-    if not isinstance(path, str):        
+    if not isinstance(path, str):      
+
+        if warns:
+            warnings.warn("path must be a string")  
         if error:
             raise TypeError("path must be a string")
         else:
             return 2
     
     if not isinstance(name, str):
+
+        if warns:
+            warnings.warn("name must be a string")
         if error:
             raise TypeError("name must be a string")
         else:
@@ -230,7 +293,12 @@ def save_data_to_txt(data : any , path : str, name : str, error : bool) -> int:
 
 
 
-def save_data_to_pickle(data : any , path : str, name : str, error : bool) -> int:
+def save_data_to_pickle(data : any , 
+                        path : str , 
+                        name : str , 
+                        error : bool = False , 
+                        warns : bool = True
+                                                ) -> int:
 
     """
     Save data to pickle file
@@ -241,13 +309,19 @@ def save_data_to_pickle(data : any , path : str, name : str, error : bool) -> in
     """
 
     # check if the types of the variables are the good ones:
-    if not isinstance(path, str):        
+    if not isinstance(path, str):  
+
+        if warns:
+            warnings.warn("path must be a string")       
         if error:
             raise TypeError("path must be a string")
         else:
             return 2
     
     if not isinstance(name, str):
+
+        if warns:
+            warnings.warn("name must be a string")
         if error:
             raise TypeError("name must be a string")
         else:
@@ -269,7 +343,11 @@ def save_data_to_pickle(data : any , path : str, name : str, error : bool) -> in
 
 
 
-def load_json(path : str, name : str, error : bool) -> tuple[dict:int]:
+def load_json(path : str , 
+              name : str , 
+              error : bool = False,
+              warns : bool = True
+                                    ) -> tuple[dict:int]:
 
     """
     Load data from a json file into a dictionary
@@ -279,13 +357,19 @@ def load_json(path : str, name : str, error : bool) -> tuple[dict:int]:
     """
 
     # check if the types of the variables are the good ones:
-    if not isinstance(path, str):        
+    if not isinstance(path, str): 
+
+        if warns:
+            warnings.warn("path must be a string")      
         if error:
             raise TypeError("path must be a string")
         else:
             return {}, 2
     
     if not isinstance(name, str):
+
+        if warns:
+            warnings.warn("name must be a string")
         if error:
             raise TypeError("name must be a string")
         else:
@@ -293,6 +377,9 @@ def load_json(path : str, name : str, error : bool) -> tuple[dict:int]:
 
     # Check if path exist and if not create it
     if not os.path.exists(path):
+
+        if warns:
+            warnings.warn("The path does not exist")
         if error:
             raise FileNotFoundError("The path does not exist")
         else:
@@ -304,6 +391,9 @@ def load_json(path : str, name : str, error : bool) -> tuple[dict:int]:
 
     # Check if the file exist
     if not os.path.exists(path + name):
+
+        if warns:
+            warnings.warn("The file does not exist")
         if error:
             raise FileNotFoundError("The file does not exist")
         else:
@@ -317,7 +407,11 @@ def load_json(path : str, name : str, error : bool) -> tuple[dict:int]:
 
 
 
-def load_csv(path : str, name : str, error : bool) -> tuple[any:int]:
+def load_csv(path : str , 
+             name : str , 
+             error : bool = False ,
+             warns : bool = True
+                                    ) -> tuple[any:int]:
 
     """
     Load data from a csv file into a dictionary
@@ -327,13 +421,19 @@ def load_csv(path : str, name : str, error : bool) -> tuple[any:int]:
     """
 
     # check if the types of the variables are the good ones:
-    if not isinstance(path, str):        
+    if not isinstance(path, str):
+
+        if warns:
+            warnings.warn("path must be a string")
         if error:
             raise TypeError("path must be a string")
         else:
             return {}, 2
     
     if not isinstance(name, str):
+
+        if warns:
+            warnings.warn("name must be a string")
         if error:
             raise TypeError("name must be a string")
         else:
@@ -341,6 +441,9 @@ def load_csv(path : str, name : str, error : bool) -> tuple[any:int]:
 
     # Check if path exist and if not create it
     if not os.path.exists(path):
+
+        if warns:
+            warnings.warn("The path does not exist")
         if error:
             raise FileNotFoundError("The path does not exist")
         else:
@@ -352,6 +455,9 @@ def load_csv(path : str, name : str, error : bool) -> tuple[any:int]:
 
     # Check if the file exist
     if not os.path.exists(path + name):
+
+        if warns:
+            warnings.warn("The file does not exist")
         if error:
             raise FileNotFoundError("The file does not exist")
         else:
@@ -364,7 +470,11 @@ def load_csv(path : str, name : str, error : bool) -> tuple[any:int]:
 
 
 
-def load_txt(path : str, name : str, error : bool) -> tuple[str, int]:
+def load_txt(path : str , 
+             name : str , 
+             error : bool = False , 
+             warns : bool = True
+                                    ) -> tuple[str, int]:
     
         """
         Load data from a txt file into a dictionary
@@ -374,13 +484,19 @@ def load_txt(path : str, name : str, error : bool) -> tuple[str, int]:
         """
     
         # check if the types of the variables are the good ones:
-        if not isinstance(path, str):        
+        if not isinstance(path, str):       
+
+            if warns:
+                warnings.warn("path must be a string") 
             if error:
                 raise TypeError("path must be a string")
             else:
                 return {}, 2
         
         if not isinstance(name, str):
+
+            if warns:
+                warnings.warn("name must be a string")
             if error:
                 raise TypeError("name must be a string")
             else:
@@ -388,6 +504,9 @@ def load_txt(path : str, name : str, error : bool) -> tuple[str, int]:
     
         # Check if path exist and if not create it
         if not os.path.exists(path):
+
+            if warns:
+                warnings.warn("The path does not exist")
             if error:
                 raise FileNotFoundError("The path does not exist")
             else:
@@ -399,6 +518,9 @@ def load_txt(path : str, name : str, error : bool) -> tuple[str, int]:
     
         # Check if the file exist
         if not os.path.exists(path + name):
+
+            if warns:
+                warnings.warn("The file does not exist")
             if error:
                 raise FileNotFoundError("The file does not exist")
             else:
@@ -412,7 +534,11 @@ def load_txt(path : str, name : str, error : bool) -> tuple[str, int]:
 
 
 
-def load_pickle(path : str, name : str, error : bool) -> tuple(any, int):
+def load_pickle(path : str , 
+                name : str , 
+                error : bool = False , 
+                warns : bool = True
+                                        ) -> tuple(any, int):
 
     """
     Load data from a pickle file into a dictionary
@@ -422,13 +548,19 @@ def load_pickle(path : str, name : str, error : bool) -> tuple(any, int):
     """
 
     # check if the types of the variables are the good ones:
-    if not isinstance(path, str):        
+    if not isinstance(path, str):   
+
+        if warns:
+            warnings.warn("path must be a string")     
         if error:
             raise TypeError("path must be a string")
         else:
             return {}, 2
     
     if not isinstance(name, str):
+
+        if warns:
+            warnings.warn("name must be a string")
         if error:
             raise TypeError("name must be a string")
         else:
@@ -436,6 +568,9 @@ def load_pickle(path : str, name : str, error : bool) -> tuple(any, int):
 
     # Check if path exist and if not create it
     if not os.path.exists(path):
+
+        if warns:
+            warnings.warn("The path does not exist")
         if error:
             raise FileNotFoundError("The path does not exist")
         else:
@@ -447,6 +582,9 @@ def load_pickle(path : str, name : str, error : bool) -> tuple(any, int):
 
     # Check if the file exist
     if not os.path.exists(path + name):
+
+        if warns:
+            warnings.warn("The file does not exist")
         if error:
             raise FileNotFoundError("The file does not exist")
         else:
@@ -459,7 +597,7 @@ def load_pickle(path : str, name : str, error : bool) -> tuple(any, int):
     return data, 0
 
 
-def maint():
+def main():
 
     # Create a dictionary
     data = {'a': 1, 'b': 2, 'c': 3}
@@ -495,4 +633,4 @@ def maint():
     print(data, code)
 
 if __name__ == '__main__':
-    maint()
+    main()
