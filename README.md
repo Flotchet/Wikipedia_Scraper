@@ -48,7 +48,7 @@ Python 3.10
 
 * functools
 
-### List of functions
+#### List of functions
 
 * **status_to_text_summarized**(**status_code**: **int**)  -> str **¦** 
   convert an int into the corresponding status code message
