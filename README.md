@@ -80,21 +80,21 @@ Python  3.10
 
 #### List of functions
 
-* **save_data(data : any, path : str, name : str, error : bool, format : str)** -> int
+* **save_data(data : any, path : str, name : str, format : str, error : bool = False, warns : bool = True)** -> int
   Save a data object (dict, list, np.ndarray, pd.DataFrame) into a file format(csv,txt,json,pickle)
-* **save_data_to_json(data : dict[any:any], path : str, name : str, error : bool)** -> int
+* **save_data_to_json(data : dict[any:any], path : str, name : str, error : bool = False, warns : bool = True)** -> int
   Save a dictionary in the form of a json file
-* **save_data_to_csv(data : any , path : str, name : str, error : bool)** -> int
+* **save_data_to_csv(data : any , path : str, name : str, error : bool = False,warns : bool = True)** -> int
   Save a data object (dict, list, np.ndarray, pd.DataFrame) into a csv file
-* **save_data_to_txt(data : any , path : str, name : str, error : bool)** -> int
+* **save_data_to_txt(data : any , path : str, name : str, error : bool = False,warns : bool = True)** -> int
   Save a data object (str, int, float, dict, list, np.ndarray, pd.DataFrame) into a txt file
-* **save_data_to_pickle(data : any , path : str, name : str, error : bool)** -> int
+* **save_data_to_pickle(data : any , path : str, name : str, error : bool = False,warns : bool = True)** -> int
   save any serealizable object into a pickle file
-* **load_json(path : str, name : str, error : bool) ->** tuple[dict:int]
+* **load_json(path : str, name : str, error : bool = False,warns : bool = True) ->** tuple[dict:int]
   load a json file as a dictionary
-* **load_csv(path : str, name : str, error : bool)** -> tuple[any:int]
+* **load_csv(path : str, name : str, error : bool = False,warns : bool = True)** -> tuple[any:int]
   load a csv file as a pandas dataframe
-* **load_txt(path : str, name : str, error : bool)** -> tuple[str, int]
+* **load_txt(path : str, name : str, error : bool = False,warns : bool = True)** -> tuple[str, int]
   load a txt file as a string
-* **load_pickle(path : str, name : str, error : bool)** -> tuple[any, int]
+* **load_pickle(path : str, name : str, error : bool = False,warns : bool = True)** -> tuple[any, int]
   Load a pickle file into an object
