@@ -111,7 +111,7 @@ Python 3.10
 
 #### List of functions
 
-* **get_page_content(url : str ,endpoint : strorNone=None ,session : anyorNone=None ,error : bool=False ,warns : bool=True)**  -> tuple[str, int] ¦ Get the content of a page as text.
-* **get_first_wiki_paragraph(url : str ,endpoint : str,session : anyorNone=None,error : bool=False,warns : bool=True)**  -> tuple[str, int] ¦ Get the first paragraph of a wikipedia page as text.
-* **get_multiple_page_content(urls : list[str] ,endpoints : list[str]orNone=None ,session : anyorNone=None ,error : bool=False ,warns : bool=True)**  -> tuple[dict[str : str] , dict[str : int]] ¦ Get the content of multiple pages as a dictionary url - text.
-* **get_multiple_endpoint_content(url : str ,endpoints : list[str]orNone=None ,session : anyorNone=None ,error : bool=False ,warns : bool=True)**  -> tuple[dict[str : str]orstr, dict[str : int]orint] ¦ Get the content of multiple pages by endpoint as a dictionary url - text or as a text if no endpoint was given.
+* **get_page_content(url : str ,endpoint : str or None=None ,session : any or None=None ,error : bool=False ,warns : bool=True)**  -> tuple[str, int] ¦ Get the content of a page as text.
+* **get_first_wiki_paragraph(url : str ,endpoint : str,session : any or None=None,error : bool=False,warns : bool=True)**  -> tuple[str, int] ¦ Get the first paragraph of a wikipedia page as text.
+* **get_multiple_page_content(urls : list[str] ,endpoints : list[str] or None=None ,session : any or None=None ,error : bool=False ,warns : bool=True)**  -> tuple[dict[str : str] , dict[str : int]] ¦ Get the content of multiple pages as a dictionary url - text.
+* **get_multiple_endpoint_content(url : str ,endpoints : list[str] or None=None ,session : any or None=None ,error : bool=False ,warns : bool=True)**  -> tuple[dict[str : str] or str, dict[str : int] or int] ¦ Get the content of multiple pages by endpoint as a dictionary url - text or as a text if no endpoint was given.
