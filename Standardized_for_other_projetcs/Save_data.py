@@ -538,7 +538,7 @@ def load_pickle(path : str ,
                 name : str , 
                 error : bool = False , 
                 warns : bool = True
-                                        ) -> tuple(any, int):
+                                        ) -> tuple[any, int]:
 
     """
     Load data from a pickle file into a dictionary
@@ -601,35 +601,35 @@ def main():
 
     # Create a dictionary
     data = {'a': 1, 'b': 2, 'c': 3}
-    directory_targe = ""
+    directory_target = ""
     error = False
 
     # Save the dictionary to a json file
-    save_data_to_json(directory_targe, "test", data, error)
+    save_data_to_json(directory_target, "test", data, error)
     
     # Load the dictionary from the json file
-    data, code = load_json(directory_targe, "test.json", error)
+    data, code = load_json(directory_target, "test.json", error)
     print(data, code)
 
     # Save the dictionary to a csv file
-    save_data_to_csv(directory_targe, "test", data, error)
+    save_data_to_csv(directory_target, "test", data, error)
 
     # Load the dictionary from the csv file
-    data, code = load_csv(directory_targe, "test.csv", error)
+    data, code = load_csv(directory_target, "test.csv", error)
     print(data, code)
 
     # Save the dictionary to a txt file
-    save_data_to_txt(directory_targe, "test", data, error)
+    save_data_to_txt(directory_target, "test", data, error)
 
     # Load the dictionary from the txt file
-    data, code = load_txt(directory_targe, "test.txt", error)
+    data, code = load_txt(directory_target, "test.txt", error)
     print(data, code)
 
     # Save the dictionary to a pickle file
-    save_data_to_pickle(directory_targe, "test", data, error)
+    save_data_to_pickle(directory_target, "test", data, error)
 
     # Load the dictionary from the pickle file
-    data, code = load_pickle(directory_targe, "test.pickle", error)
+    data, code = load_pickle(directory_target, "test.pickle", error)
     print(data, code)
 
 if __name__ == '__main__':
