@@ -299,7 +299,7 @@ def rscft(text : str) -> str:
 
     return remove_special_character_from_text(text)
 
-def remove_control_character_from_text(text : str):
+def remove_control_character_from_text(text : str) -> str:
     """
     remove all the control character from a text
     takes a text
